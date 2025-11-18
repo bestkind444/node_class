@@ -1,0 +1,13 @@
+ 
+ <%- include("components/nav.ejs") %>
+ 
+ <h1><%= title %></h1>
+
+
+<ul>
+  <% products.forEach(product => { %>
+ <li><%= product.product %></li>
+    
+ <%  }) %>
+</ul>
+
