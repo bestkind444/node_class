@@ -4,11 +4,13 @@ import express from "express";
 import databaseConnection from "./db/db.mongo.js";
 import carRouter from "./routes/car.route.js";
 import registeredRouter from "./routes/auth.routes.js";
-databaseConnection()
-const app = express()
+import cors from "cors"
+databaseConnection();
+const app = express();
 
 // use middleware 
 app.use(express.json());
+app.use(cors())
 
 app.use("/api/v2", carRouter);
 app.use("/api/v2", registeredRouter)
