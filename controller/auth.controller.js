@@ -65,7 +65,6 @@ export { registeredUsers };
 
 const loginUser = async (req, res) => {
     try {
-
         const { name, email, password } = req.body;
 
         if (!name || !email || !password) {
@@ -76,8 +75,7 @@ const loginUser = async (req, res) => {
         }
 
         const logUser = await user.findOne({ email });
-        console.log(logUser);
-
+        // console.log(logUser);
         const verifiedPassword = await bcrypt.compare(password, logUser.password);
         if (!verifiedPassword) {
             return res.status(400).json({
@@ -98,14 +96,6 @@ const loginUser = async (req, res) => {
             accessToken,
             data:logUser
         });
-
-
-
-
-
-
-
-
 
 
     } catch (error) {

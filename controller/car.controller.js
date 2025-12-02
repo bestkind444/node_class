@@ -3,6 +3,9 @@ import Car from "../model/car.js";
 const carCreated = async (req, res) => {
     try {
         const newcar = req.body;
+        const userIfo = req.userInfo.userId;
+        console.log(userIfo);
+
         if (!newcar) {
             return res.status(400).json({
                 success: false,
@@ -92,6 +95,7 @@ export { updatecars }
 const deletedCars = async (req, res) => {
     try {
         const userId = req.params.id;
+
         const deleted = await Car.findByIdAndDelete(userId)
         if (!deleted) {
             return res.status(400).json({
@@ -113,7 +117,7 @@ const deletedCars = async (req, res) => {
             message: "server error"
         });
     }
-    
+
 
 }
 export { deletedCars }
