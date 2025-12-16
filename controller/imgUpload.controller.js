@@ -9,7 +9,7 @@ console.log(upload);
 
 export const uploadController = async (req, res) => {
     try {
-        console.log(req.file);
+        // console.log(req.file);
         
         const resFromCloud = await cloudUploadHelper(req.file.buffer);
        

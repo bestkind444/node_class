@@ -16,9 +16,9 @@ cloudinary.config({
   api_secret: process.env.CLOUD_SECRET_KEY,
   secure: true
 });
-// use middleware 
 
-// multer
+
+
 app.use(cors())
 
 app.use("/api/v2", carRouter);
